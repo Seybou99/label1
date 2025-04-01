@@ -1,0 +1,14 @@
+[build]
+  base = "label-energie-web-master"
+  command = "pnpm install --force && pnpm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[build.environment]
+  NEXT_USE_NETLIFY_EDGE = "true"
+  NODE_VERSION = "18"
+  NEXT_PRIVATE_STANDALONE = "true"
+  NEXT_TELEMETRY_DISABLED = "1"
+  PNPM_FLAGS = "--force --no-frozen-lockfile"

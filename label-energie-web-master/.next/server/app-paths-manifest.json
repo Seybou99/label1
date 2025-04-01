@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/simulateur/page": "app/simulateur/page.js",
+  "/app/mon-compte/mes-informations/page": "app/app/mon-compte/mes-informations/page.js",
+  "/app/mon-compte/mes-dossiers/page": "app/app/mon-compte/mes-dossiers/page.js"
+}
