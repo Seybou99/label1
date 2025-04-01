@@ -14,7 +14,7 @@ async function bootstrap() {
   });
   
   const configService = app.get(ConfigService);
-  const port = configService.get('PORT') || 3002;
+  const port = process.env.PORT || configService.get('PORT') || 3002;
   const environment = configService.get('NODE_ENV') || 'development';
 
   // Webhook endpoint middleware
@@ -30,7 +30,13 @@ async function bootstrap() {
   // Regular JSON parsing for other routes
   app.use(express.json());
 
-  app.enableCors();
+  // Configure CORS for Vercel deployment
+  app.enableCors({
+    origin: '*', // Vous pouvez restreindre cela à votre domaine frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  });
+  
   app.setGlobalPrefix('api');
 
   await app.listen(port);
